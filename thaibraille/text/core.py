@@ -78,6 +78,7 @@ thai_braille_mapping_dict = {
     "๋":['356'],
     "์":['456'],
     "ๆ":['3'],
+    " ":['-1']
 }
 
 dict_2 = {
@@ -93,7 +94,7 @@ thai_braille_mapping_dict = dict(thai_braille_mapping_dict, **dict_2)
 
 _v1=["เ-tอ", "เ-ีtย", "เ-ืtอ", "-ัtว", "เ-tา", "เ-tาะ"]
 
-char_trie = Trie(list(thai_braille_mapping_dict.keys())+_v1)
+char_trie = Trie(list(thai_braille_mapping_dict.keys())+_v1+[" "])
 
 
 _vowel_patterns =[i.replace("-","([ก-ฮ])").replace("t","([่้๊๋])")+",\\1"+i.replace("t","")+"\\2" for i in _v1]
@@ -106,13 +107,24 @@ def _replace_vowels(word: str) -> str:
 
     return word
 
-def thai_word_braille(word):
+def thai_word_braille(word: str) -> str:
     word = _replace_vowels(word)
     _temp = []
     for i in word_tokenize(word,custom_dict=char_trie, engine="mm"):
-       _temp.append(thai_braille_mapping_dict[i])
+       if i.isspace() and len(i)>1:
+        for k in list(i):
+            _temp.append(thai_braille_mapping_dict[k])
+       else:
+        _temp.append(thai_braille_mapping_dict[i])
     _b = Braille(_temp)
     return _b.tobraille()
+
+
+def thai_text_braille(text: str) -> list:
+    _list_braille = []
+    for word in word_tokenize(text):
+        _list_braille.append(thai_word_braille(word))
+    return _list_braille
 
 
 class Braille:
@@ -133,6 +145,7 @@ class Braille:
 		else:
 			self.data = sorted(list(data)) # แปลงเป็น list พร้อมเรียงจากน้อยไปมาก
 		self.db = {
+            "-1":" ",
             '0':'⠀',
             '1':'⠁',
             '3':'⠂',

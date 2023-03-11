@@ -19,6 +19,18 @@ print(thai_word_braille("แมว"))
 
 This function support Thai and number only.
 
+**Thai text to braille**
+
+```python
+from thaibraille import thai_text_braille
+
+print(thai_text_braille("แมวกิน ปลา"))
+
+# output: ['⠣⠍⠺', '⠛⠃⠝', ' ', '⠯⠇⠡']
+```
+
+This function support Thai and number only.
+
 ## License
 
 

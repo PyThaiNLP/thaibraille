@@ -8,3 +8,6 @@ class TestTextPackage(unittest.TestCase):
         self.assertEqual(thai_word_braille("ลิ้น"), '⠇⠃⠲⠝')
         self.assertEqual(thai_word_braille("ว่าง"), '⠺⠔⠡⠻')
         self.assertEqual(thai_word_braille("แก้ม"), '⠣⠛⠲⠍')
+
+    def test_thai_text_braille(self):
+        self.assertEqual(thai_text_braille("แมวกิน   ปลา"), ['⠣⠍⠺', '⠛⠃⠝', '   ', '⠯⠇⠡'])

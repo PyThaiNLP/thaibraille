@@ -9,7 +9,7 @@ with open("requirements.txt","r",encoding="utf-8-sig") as f:
 
 setup(
     name="thaibraille",
-    version="0.1dev0",
+    version="0.1dev1",
     description="Thai Braille for Natural Language Processing.",
     long_description=readme,
     long_description_content_type="text/markdown",
