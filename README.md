@@ -49,7 +49,3 @@ This function support Thai and number only.
    See the License for the specific language governing permissions and
    limitations under the License.
  ```
-
-## Reference
-
-อำพรไพบูลย์ ว., & อรุณมานะกุล ว. (2017). การวิเคราะห์ระบบตัวอักษรเบรลล์ไทย. วารสารศิลปศาสตร์ มหาวิทยาลัยธรรมศาสตร์, 17(2), 35–58. https://doi.org/10.14456/lartstu.2017.9
