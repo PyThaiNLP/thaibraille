@@ -17,7 +17,7 @@ setup(
     author_email="wannaphong@yahoo.com",
     url="https://github.com/pythainlp/thaibraille",
     packages=find_packages(),
-    # test_suite="tests",
+    test_suite="tests",
     python_requires=">=3.6",
     package_data={},
     install_requires=requirements,
