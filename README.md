@@ -1,6 +1,9 @@
 # thaibraille
 Thai Braille for Natural Language Processing.
 
+สวัสดีชาวโลก
+> ⠎⠺⠜⠎⠙⠆ ⠬⠡⠺ ⠊⠇⠛
+
 ## Install
 
 > pip install thaibraille
