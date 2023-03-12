@@ -48,16 +48,26 @@ thai_braille_mapping_dict = {
     "ฬ":["6", "135"],
     "อ":["145"],
     "ฮ":["123456"],
-    "1":['2456', "1"],
-    "2":['2456', "13"],
-    "3":['2456', "12"],
-    "4":['2456', "124"],
-    "5":['2456', "14"],
-    "6":['2456', "123"],
-    "7":['2456', "1234"],
-    "8":['2456', "134"],
-    "9":['2456', "23"],
-    "0":['2456', "234"],
+    "1":["1"],
+    "2":["13"],
+    "3":["12"],
+    "4":["124"],
+    "5":["14"],
+    "6":["123"],
+    "7":["1234"],
+    "8":["134"],
+    "9":["23"],
+    "0":["234"],
+    "๑":["1"],
+    "๒":["13"],
+    "๓":["12"],
+    "๔":["124"],
+    "๕":["14"],
+    "๖":["123"],
+    "๗":["1234"],
+    "๘":["134"],
+    "๙":["23"],
+    "๐":["234"],
     "ะ":['1'],
     "า":['16'],
     "ิ":['13'],
@@ -78,7 +88,8 @@ thai_braille_mapping_dict = {
     "๋":['356'],
     "์":['456'],
     "ๆ":['3'],
-    " ":['-1']
+    " ":['-1'],
+    "<N>":['2456']
 }
 
 dict_2 = {
@@ -90,11 +101,18 @@ dict_2 = {
     "เ-าะ":['145', '1']
 }
 
+# number start with '2456'
+
+def replace_number(word):
+    if word[0] in list("1234567890๐๑๒๓๔๕๖๗๘๙"):
+        return '<N>'+word
+    return word
+
 thai_braille_mapping_dict = dict(thai_braille_mapping_dict, **dict_2)
 
 _v1=["เ-tอ", "เ-ีtย", "เ-ืtอ", "-ัtว", "เ-tา", "เ-tาะ"]
 
-char_trie = Trie(list(thai_braille_mapping_dict.keys())+_v1+[" "])
+char_trie = Trie(list(thai_braille_mapping_dict.keys())+_v1+[" ","<N>"])
 
 
 _vowel_patterns =[i.replace("-","([ก-ฮ])").replace("t","([่้๊๋])")+",\\1"+i.replace("t","")+"\\2" for i in _v1]
@@ -109,6 +127,7 @@ def _replace_vowels(word: str) -> str:
 
 def thai_word_braille(word: str) -> str:
     word = _replace_vowels(word)
+    word = replace_number(word)
     _temp = []
     for i in word_tokenize(word,custom_dict=char_trie, engine="mm"):
        if i.isspace() and len(i)>1:
