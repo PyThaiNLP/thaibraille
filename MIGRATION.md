@@ -21,9 +21,10 @@ This aligns with the ISO/ANSI standard used in EU, UK, US, and the Unicode Brail
 ## Impact on Users
 
 ### For End Users
-- **No visible changes**: The Braille characters produced are identical
+- **Output changes**: The Unicode Braille characters will be different due to standardization
+- **Same semantic meaning**: The Braille patterns represent the same Thai text content, but using international standard encoding
 - **Same API**: All function signatures remain unchanged
-- **Same output**: `thai_word_braille()` and `thai_text_braille()` produce the same Unicode Braille characters
+- **Backward compatibility**: Existing code continues to work without modifications
 
 ### For Developers Working with Internal Representations
 If you were directly accessing or manipulating the internal dot pattern representations (e.g., in `thai_braille_mapping_dict` or the `Braille` class), you need to be aware of the new numbering:

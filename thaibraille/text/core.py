@@ -12,6 +12,12 @@ This module uses the international standard Braille dot numbering system:
 
 This follows the ISO/ANSI standard used internationally (EU, UK, US).
 The Unicode Braille Patterns block (U+2800-U+28FF) also uses this numbering.
+
+Data structures:
+  - thai_braille_mapping_dict: Maps Thai characters to lists of dot pattern strings
+    Example: "ก" -> ["1245"] means character ก uses dots 1, 2, 4, 5
+  - Braille.db: Maps dot pattern strings to Unicode Braille characters
+    Example: "1245" -> "⠛" (U+281B)
 """
 import re
 from pythainlp.util import Trie
