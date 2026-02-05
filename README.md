@@ -1,10 +1,8 @@
 # thaibraille
 Thai Braille for Natural Language Processing.
 
-**Note**: As of the latest version, Thaibraille uses the **international standard Braille dot numbering system** (ISO/ANSI) for better compatibility with the global Braille community. This ensures that internal representations align with standards used in EU, UK, US, and the Unicode Braille Patterns specification.
-
 สวัสดีชาวโลก
-> ⠎⠺⠖⠎⠓⠌ ⠦⠡⠺⠊⠍⠛
+> ⠎⠺⠜⠎⠙⠆ ⠬⠡⠺ ⠊⠇⠛
 
 ## Install
 
@@ -19,7 +17,7 @@ from thaibraille import thai_word_braille
 
 print(thai_word_braille("แมว"))
 
-# output: ⠩⠇⠺
+# output: ⠣⠍⠺
 ```
 
 This function support Thai and number only.
@@ -31,7 +29,7 @@ from thaibraille import thai_text_braille
 
 print(thai_text_braille("แมวกิน ปลา"))
 
-# output: ['⠩⠇⠺', '⠛⠉⠗', ' ', '⠯⠍⠡']
+# output: ['⠣⠍⠺', '⠛⠃⠝', ' ', '⠯⠇⠡']
 ```
 
 This function support Thai and number only.
