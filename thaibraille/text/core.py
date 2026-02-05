@@ -50,7 +50,7 @@ thai_braille_mapping_dict = {
     "ฮ":['123456'],
     "ฤ":['1235', '2'],
     "ฦ":['123', '2'],
-    "<N>":['3456'],  # UEB number prefix
+    "<N>":['3456'],  # Number prefix (used by replace_number function)
     "1":['1'],
     "2":['12'],
     "3":['14'],
@@ -93,9 +93,9 @@ thai_braille_mapping_dict = {
     "์":['356'],
     "ๆ":['2'],
     " ":['-1'],
-    "ฯ":['56', '23'],
-    "ฯลฯ":['56', '123'],
-    ".":['456', '256'],  # UEB
+    "ฯ":['56', '23'],  # Thai abbreviation mark
+    "ฯลฯ":['56', '123'],  # Thai abbreviation (special multi-character case)
+    ".":['456', '256'],
     "@":['1', '1'],
     "?":['456', '236'],
     "!":['456', '235'],
